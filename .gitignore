@@ -4,3 +4,6 @@ dist/
 docker-data/
 *.log
 *.tsbuildinfo
+*.iws
+workspace.xml
+tasks.xml
