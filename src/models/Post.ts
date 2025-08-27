@@ -2,19 +2,21 @@
 import { Schema, model, Document } from "mongoose";
 
 export interface IPost extends Document {
-    title: string;
-    content: string;
-    tags?: string[];
-    createdAt: Date;
+  userId: string;
+  title: string;
+  content: string;
+  tags?: string[];
+  createdAt: Date;
 }
 
 const PostSchema = new Schema<IPost>(
-    {
-        title: { type: String, required: true },
-        content: { type: String, required: true },
-        tags: [{ type: String }],
-    },
-    { timestamps: { createdAt: true, updatedAt: false } }
+  {
+    title: { type: String, required: true },
+    content: { type: String, required: true },
+    tags: [{ type: String }],
+    userId: { type: String, required: true }, // добавлено
+  },
+  { timestamps: { createdAt: true, updatedAt: false } }
 );
 
 export const Post = model<IPost>("Post", PostSchema);
